@@ -7,7 +7,10 @@ exports.homepage = async(req, res) => {
         description: "Note Web Application"
     }
     
-    res.render("index", locals);
+    res.render("index", {
+        locals,
+        layout: "../views/layouts/front-page"
+        });
 }
 
 // GET About

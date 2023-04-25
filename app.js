@@ -19,7 +19,13 @@ app.set("view engine", "ejs");
 
 // Rotas
 app.use("/", require("./server/routes/index"));
+app.use("/", require("./server/routes/dashboard"));
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
+})
+
+// Handle 404
+app.get("*", function (req, res) {
+    res.status(404).render("404")
 })
