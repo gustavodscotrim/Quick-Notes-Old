@@ -36,15 +36,15 @@ passport.use(
 );
 
 router.get(
-    '/auth/google',
+    "/auth/google",
     passport.authenticate('google', { scope: ['email', 'profile'] })
 );
 
 router.get(
-    '/google/callback',
+    "/google/callback",
     passport.authenticate('google', {
-        failureRedirect: '/login-failure',
-        successRedirect: '/dashboard'
+        failureRedirect: "/login-failure",
+        successRedirect: "/dashboard"
     })
 );
 
@@ -54,7 +54,7 @@ router.get("/login-failure", (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.session.destroy(error => {
-        if(error) {
+        if (error) {
             console.log(error);
             res.send("Error loggin out");
         } else {
@@ -73,6 +73,4 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-
 module.exports = router;
-

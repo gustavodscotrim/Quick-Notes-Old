@@ -1,5 +1,5 @@
 
-// GET Homepage
+// GET (Homepage)
 
 exports.homepage = async (req, res) => {
     const locals = {
@@ -13,7 +13,7 @@ exports.homepage = async (req, res) => {
     });
 }
 
-// GET About
+// GET (About)
 
 exports.about = async (req, res) => {
     const locals = {

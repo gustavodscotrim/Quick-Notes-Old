@@ -18,7 +18,7 @@ app.use(session({
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI
     }),
- cookie: { maxAge: new Date ( Date.now() + (3600000))}
+    cookie: { maxAge: new Date(Date.now() + (3600000)) }
 }));
 
 app.use(passport.initialize());
@@ -28,13 +28,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-// Conexão com o Banco de Dados
+// Banco de Dados
 connectDB();
 
 // Arquivos Estáticos
 app.use(express.static("public"));
 
-// Templating Engine EJS
+// Template Engine EJS
 app.use(expressLayouts);
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
@@ -48,7 +48,7 @@ app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 })
 
-// Handle 404
+// 404
 app.get("*", function (req, res) {
     res.status(404).render("404")
 })
